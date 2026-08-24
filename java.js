@@ -9,3 +9,15 @@ return h1*h2
 }
 
 Factorial(b)
+f = 12
+function fac(number){
+    let dat = Array.from(Array(number+1).keys())
+    console.log(dat.slice(1))
+    let D = dat.slice(1).reduce((h1,h2)=>{
+        return h1*h2
+    })
+    console.log(D)
+}
+
+
+fac(f)

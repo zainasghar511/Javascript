@@ -102,10 +102,10 @@
 
 
 
-fetch ('https://jsonplaceholder.typicode.com/todos/1')
-.then(response=>response.json())
-.then(data=>console.log("we get data",data))
-.catch(error=>console.log("facing some eror",error))
+// fetch ('https://jsonplaceholder.typicode.com/todos/1')
+// .then(response=>response.json())
+// .then(data=>console.log("we get data",data))
+// .catch(error=>console.log("facing some eror",error))
 
 
 async function savedata() {
@@ -118,3 +118,36 @@ async function savedata() {
         console.log("we face some temporary eror",eror)
     }
 }
+savedata()
+
+
+async function facl() {
+    try{
+        console.log("check the result thanks")
+        const mani = await fetch('https://jsonplaceholder.typicode.com/users/1')
+        const main = await mani.json();
+        console.log("getting data waoo" , main)
+    }catch(eror){
+        console.log("zain we are facing some eror",eror)
+    }
+}
+facl()
+let press = document.querySelector(".press")
+press.addEventListener('click',async  function name(){
+   
+         try{
+        console.log("May be we get daata")
+        const btn = await fetch ('https://jsonplaceholder.typicode.com/users/1')
+        const zain = await btn.json()
+        console.log("we are pass",zain)
+        const para = document.createElement("p")
+para.textContent =`Name: ${zain.name}|Email:${zain.email} 
+`
+
+document.body.appendChild(para)
+    }catch(eror){
+        console.log("we face some eror",eror)
+    }
+    
+
+})

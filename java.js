@@ -108,49 +108,67 @@
 // .catch(error=>console.log("facing some eror",error))
 
 
-async function savedata() {
-    try{
-        console.log("we are waiting for data");
-        const response = await fetch('https://jsonplaceholder.typicode.com/todos/1')
-        const realdata = await response.json();
-        console.log("finally we get data",realdata)
-    }catch(eror){
-        console.log("we face some temporary eror",eror)
-    }
+// async function savedata() {
+//     try{
+//         console.log("we are waiting for data");
+//         const response = await fetch('https://jsonplaceholder.typicode.com/todos/1')
+//         const realdata = await response.json();
+//         console.log("finally we get data",realdata)
+//     }catch(eror){
+//         console.log("we face some temporary eror",eror)
+//     }
+// }
+// savedata()
+
+
+// async function facl() {
+//     try{
+//         console.log("check the result thanks")
+//         const mani = await fetch('https://jsonplaceholder.typicode.com/users/1')
+//         const main = await mani.json();
+//         console.log("getting data waoo" , main)
+//     }catch(eror){
+//         console.log("zain we are facing some eror",eror)
+//     }
+// }
+// facl()
+// let press = document.querySelector(".press")
+// press.addEventListener('click', async function name() {
+//     try {
+//         console.log("May be we get data")
+        
+//         // 1. URL change kiya taake 10 users ka array mil jaye
+//         const btn = await fetch('https://jsonplaceholder.typicode.com/users')
+//         const zain = await btn.json()
+//         console.log("we are pass", zain)
+        
+//         // 2. map() use kiya taake har user ka HTML ban jaye
+//         const usersHTML = zain.map(user => {
+//             return `<p>Name: ${user.name} | Email: ${user.email}</p>`
+//         })
+
+
+        
+//         // 3. .join('') se array ko string banaya aur screen par dikha diya
+//         document.body.innerHTML = usersHTML.join('')
+
+//     } catch (eror) {
+//         console.log("we face some error", eror)
+//     }
+// })
+let b = prompt("Enter 2nd Number")
+let a = prompt("Enter 1st Number")
+
+if(isNaN(a)||isNaN(b)){
+  throw  SyntaxError("throw this is not alower")
 }
-savedata()
+
+let sum = parseInt(a)+ parseInt(b)
 
 
-async function facl() {
-    try{
-        console.log("check the result thanks")
-        const mani = await fetch('https://jsonplaceholder.typicode.com/users/1')
-        const main = await mani.json();
-        console.log("getting data waoo" , main)
-    }catch(eror){
-        console.log("zain we are facing some eror",eror)
-    }
+try {
+    console.log("your result",sum*5)
+    
+} catch (error) {
+    console.log("we are facing eror")
 }
-facl()
-let press = document.querySelector(".press")
-press.addEventListener('click', async function name() {
-    try {
-        console.log("May be we get data")
-        
-        // 1. URL change kiya taake 10 users ka array mil jaye
-        const btn = await fetch('https://jsonplaceholder.typicode.com/users')
-        const zain = await btn.json()
-        console.log("we are pass", zain)
-        
-        // 2. map() use kiya taake har user ka HTML ban jaye
-        const usersHTML = zain.map(user => {
-            return `<p>Name: ${user.name} | Email: ${user.email}</p>`
-        })
-        
-        // 3. .join('') se array ko string banaya aur screen par dikha diya
-        document.body.innerHTML = usersHTML.join('')
-
-    } catch (eror) {
-        console.log("we face some error", eror)
-    }
-})

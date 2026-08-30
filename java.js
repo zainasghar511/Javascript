@@ -133,21 +133,24 @@ async function facl() {
 }
 facl()
 let press = document.querySelector(".press")
-press.addEventListener('click',async  function name(){
-   
-         try{
-        console.log("May be we get daata")
-        const btn = await fetch ('https://jsonplaceholder.typicode.com/users/1')
+press.addEventListener('click', async function name() {
+    try {
+        console.log("May be we get data")
+        
+        // 1. URL change kiya taake 10 users ka array mil jaye
+        const btn = await fetch('https://jsonplaceholder.typicode.com/users')
         const zain = await btn.json()
-        console.log("we are pass",zain)
-        const para = document.createElement("p")
-para.textContent =`Name: ${zain.name}|Email:${zain.email} 
-`
+        console.log("we are pass", zain)
+        
+        // 2. map() use kiya taake har user ka HTML ban jaye
+        const usersHTML = zain.map(user => {
+            return `<p>Name: ${user.name} | Email: ${user.email}</p>`
+        })
+        
+        // 3. .join('') se array ko string banaya aur screen par dikha diya
+        document.body.innerHTML = usersHTML.join('')
 
-document.body.appendChild(para)
-    }catch(eror){
-        console.log("we face some eror",eror)
+    } catch (eror) {
+        console.log("we face some error", eror)
     }
-    
-
 })

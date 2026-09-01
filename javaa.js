@@ -4,8 +4,15 @@ let price = document.querySelector('.input2')
 let submit = document.querySelector('.submit')
 let runtotal = 0
 let itemtotal = 0
+let clear = document.querySelector('.clear')
 
 
+function allclear() {
+    runtotal = 0;
+    itemtotal = 0;
+    timetable.innerHTML = ""
+    containerdata.innerHTML=""
+}
 submit.addEventListener('click',press=()=>{
     let itemval = item.value;
     let priceval = Number( price.value)
@@ -53,8 +60,29 @@ if(totaldiv){
         sumtotal.textContent = runtotal
     }
 })
+clear.addEventListener('click',clean=()=>{
+    if(confirm("Do you want to clear All history")){
+//  containerdata.innerHTML = ""
+//    timetable.innerHTML = ""
+//     runtotal = 0;
+    // itemtotal = 0;
+    allclear()
+ } else{
+
+    }
+})
+
+
   
   console.log(priceval,itemval)
+   let date =  new Date()
+    let da = date.getDate()
+    let month = date.getMonth()
+    let year = date.getFullYear()
+    let timetable = document.createElement('P')
+    timetable.textContent = `${da} ${month} ${year} `
+    document.body.appendChild(timetable)
+    console.log(date)
  item.value =""
  price.value =""
 })
@@ -74,61 +102,60 @@ next.addEventListener('click',data=()=>{
 
 
 
-
  
-//  let deletebtn = document.createElement('button')
-// deletebtn.textContent = 'x'
+ let deletebtn = document.createElement('button')
+deletebtn.textContent = 'x'
 
-//    let para = document.createElement("P")
-// submit.addEventListener('click', press= ()=>{
+   let para = document.createElement("P")
+submit.addEventListener('click', press= ()=>{
     
-//       let itemval = item.value;
-//     let pri = Number (price.value)
-//     if(pri==""){
-//         alert("enter some number")
-//     }
-//     if(itemval==""){
-//         alert("item name write ")
-//     }
+      let itemval = item.value;
+    let pri = Number (price.value)
+    if(pri==""){
+        alert("enter some number")
+    }
+    if(itemval==""){
+        alert("item name write ")
+    }
     
   
-//     console.log(pri)
-//     console.log(itemval)
+    console.log(pri)
+    console.log(itemval)
   
-//   if(item.value !==''){
+  if(item.value !==''){
 
 
-//    para.textContent = `item Name: ${itemval}| item Price:${pri} `
-//    console.log(deletebtn)
-//    document.body.appendChild(para)
-//    document.body.appendChild(deletebtn)
-// }
+   para.textContent = `item Name: ${itemval}| item Price:${pri} `
+   console.log(deletebtn)
+   document.body.appendChild(para)
+   document.body.appendChild(deletebtn)
+}
 
-//   if (price.value!=='') {
-//     runtotal += pri
-//     let divtotal = document.querySelector('.H1')
+  if (price.value!=='') {
+    runtotal += pri
+    let divtotal = document.querySelector('.H1')
   
-//     if(divtotal){
-//           divtotal.textContent = runtotal
-//     }
-//     else{
-//         console.log("total",runtotal)
-//     }
+    if(divtotal){
+          divtotal.textContent = runtotal
+    }
+    else{
+        console.log("total",runtotal)
+    }
     
-//   }
-//  price.value="";
-//  item.value = "";
-// })
-// deletebtn.addEventListener('click',del=()=>{
+  }
+ price.value="";
+ item.value = "";
+})
+deletebtn.addEventListener('click',del=()=>{
 
-// if(deletebtn !== null){
+if(deletebtn !== null){
 
-// para.remove()
+para.remove()
 
-// deletebtn.remove()
-// runtotal -= pri;
-// if(runtotal){
-//     runtotal.textContent = runtotal
-// }
-// }
-// })
+deletebtn.remove()
+runtotal -= pri;
+if(runtotal){
+    runtotal.textContent = runtotal
+}
+}
+})
